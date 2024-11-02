@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TheMealDB</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <section class="iLoveFood">
+
+        <!-- T E X T   &   I N P U T -->
+
+        <div class="typeBox">
+            <h1>Type an aliment</h1>
+            <input type="text" id="food" placeholder="Type a food name...">
+            <button id="searchResult">search</button>
+        </div>
+
+        <!-- R E S U L T   O F   S E A R C H -->
+
+        <div class="searchResultText">These are the results for : <span>YourSearch</span> </div>
+
+        <!-- G R I D   W I T H   D O M -->
+
+        <div class="grid">
+        </div>
+    </section>
+
+    <!-- M O D A L -->
+
+    <section class="modalSection hide">
+        <div class="overlay hide"></div>
+        <div class="modal" id="mealModal">
+            <div class="modal-content">
+                <span class="close" id="closeModal">&times;</span>
+                <div class="meal-image" id="mealImageContainer"></div>
+                <h2 id="mealTitle"></h2>
+                <ul id="mealIngredients"></ul>
+                <p id="mealInstructions"></p>
+            </div>
+        </div>
+    </section>
+<!-- S C R I P T -->
+<script src="app.js"></script>
+</body>
+</html>

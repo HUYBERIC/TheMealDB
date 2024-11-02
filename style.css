@@ -1,0 +1,248 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background-color: #F87666;
+    font-family: 'Fira Sans';
+    overflow-x : hidden;
+}
+
+.iLoveFood{
+    width: 100vw;
+    height: 100vw;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.typeBox{
+    width: 80vw;
+    text-align: center;
+}
+
+.typeBox h1 {
+    margin: 20px auto;
+    text-wrap: nowrap;
+    font-size: 2.5rem;
+    color: #F4D35E;
+}
+
+h1:hover{
+    transform: scale(1.05);
+    text-decoration: solid;
+    cursor:default;
+}
+
+.typeBox #food,
+.typeBox #searchResult {
+    margin: 0 2.5px;
+    font-size: 1rem;
+    min-height: 25px;
+    padding: 7px 20px;
+    border: none;
+    border-radius: 10px;
+    background-color: #F4D35E;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    color: #F87666;
+}
+
+#food:focus{
+    outline: none;
+    border: 1px solid #ddd;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+    background-color: #F87666;
+    color: #F4D35E;
+}
+
+#food::placeholder{
+    color: #F87666;
+}
+
+.typeBox #food:hover,
+.typeBox #searchResult:hover {
+    cursor:pointer;
+    transform: scale(1.05);
+}
+
+.typeBox #food:hover{
+    cursor:text;
+    transform: scale(1.05);
+}
+
+.searchResultText{
+    font-size: 1.5rem;
+    margin: 30px 0;
+    color: #f4d35e;
+    font-weight: 600;
+}
+
+.searchResultText span{
+    text-transform: uppercase;
+    color: #F87666;
+    background-color: rgba(244, 211, 94,.4);
+}
+
+.searchResultText span:hover{
+    transform: scale(10);
+    cursor: pointer;
+    color: #f4d35e;
+    background-color: #F87666;
+}
+
+/* E V E N T     J S */
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 15px;
+    width: 100%;
+    max-width: 1200px;
+    padding: 20px;
+}
+
+p {
+    text-align: center;
+}
+
+.meal-item {
+    background-color: #F4D35E;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s;
+}
+
+.meal-item:hover {
+    transform: scale(1.05);
+}
+
+.meal-item img {
+    width: 100%;
+    height: auto;
+}
+
+.overlay{
+    background-color: rgba(0, 0, 0, 0.7);
+    width: 100vw;
+    height: 100vh;
+    z-index: 0;
+    display: block;
+    position: fixed;
+}
+
+.modalSection {
+    position:fixed;
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal {
+    background: #F4D35E;
+    border-radius: 10px;
+    width: 80vw;
+    max-width: 800px;
+    max-height: 80vh;
+    justify-self: center;
+    padding: 20px;
+    position: fixed;
+    z-index: 2;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #F87666 #F4D35E;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 2rem;
+    opacity: 0.5;
+    transition: all 0.3s ease;
+}
+
+.close:hover{
+    transform: scale(1.1);
+    opacity: 1;
+}
+
+.meal-image {
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+h2 {
+    margin: 15px 0;
+    font-size: 2rem;
+    padding: 5px 10px;
+    text-align: center;
+    color: #F87666;
+}
+
+h3{
+    font-size: 1rem;
+    padding: 5px 10px;
+    text-align: center;
+    color: #F87666;
+}
+
+ul {
+    display:grid;
+    font-weight: 500;
+    grid-template-columns: 1fr 1fr 1fr;
+    list-style: none;
+    padding: 10px;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+li {
+    border-left: 4px ridge #F87666;
+    padding-left: 3px;
+}
+
+#mealInstructions{
+    line-height: 1.8rem;
+    text-align: left;
+}
+
+.hide {
+    display: none;
+}
+
+.no-scroll{
+    overflow: hidden;
+}
+
+/* M O D A L   S C R O L L B A R */
+
+.modal::-webkit-scrollbar {
+    width: 10px;
+}
+
+.modal::-webkit-scrollbar-track {
+    background: #F4D35E;
+    border-radius: 10px;
+}
+
+.modal::-webkit-scrollbar-thumb {
+    background-color: #F87666;
+    border-radius: 10px;
+    border: 2px solid #F4D35E;
+}
